@@ -7,8 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MainView extends Application {
+    private static final Logger logger = LoggerFactory.getLogger(MainView.class);
+
     @Override
     public void start(Stage primaryStage) {
         MainController controller = new MainController();
@@ -34,6 +38,7 @@ public class MainView extends Application {
         if (button != null) {
             pane.getChildren().add(button);
         } else {
+            logger.error("Button is null and cannot be added to the pane.");
             System.err.println("Button is null and cannot be added to the pane.");
         }
     }

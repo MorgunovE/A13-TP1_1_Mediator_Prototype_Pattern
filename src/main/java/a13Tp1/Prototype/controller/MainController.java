@@ -9,8 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MainController {
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
     private PrototypeRegistry registry;
 
     public MainController() {
@@ -28,6 +31,7 @@ public class MainController {
         try {
             return createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
         } catch (Exception e) {
+            logger.error("Error creating Default Button", e);
             showError("Error creating Default Button: " + e.getMessage());
             return null;
         }
@@ -37,6 +41,7 @@ public class MainController {
         try {
             return createButton((ButtonPrototype) registry.getPrototype("submitButton"));
         } catch (Exception e) {
+            logger.error("Error creating Submit Button", e);
             showError("Error creating Submit Button: " + e.getMessage());
             return null;
         }
@@ -46,6 +51,7 @@ public class MainController {
         try {
             return createButton((ButtonPrototype) registry.getPrototype("cancelButton"));
         } catch (Exception e) {
+            logger.error("Error creating Cancel Button", e);
             showError("Error creating Cancel Button: " + e.getMessage());
             return null;
         }
@@ -73,6 +79,7 @@ public class MainController {
 
             return button;
         } catch (Exception e) {
+            logger.error("Error creating button", e);
             showError("Error creating button: " + e.getMessage());
             return null;
         }
