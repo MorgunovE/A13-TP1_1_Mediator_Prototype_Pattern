@@ -13,7 +13,8 @@ import java.util.Map;
  * @since 28-11-2024
  */
 public class PrototypeRegistry {
-    private Map<String, Prototype> prototypes = new ConcurrentHashMap<>();
+    private Map<String, Prototype> prototypes =
+            new ConcurrentHashMap<>();
 
     /**
      * Adds a prototype to the registry.

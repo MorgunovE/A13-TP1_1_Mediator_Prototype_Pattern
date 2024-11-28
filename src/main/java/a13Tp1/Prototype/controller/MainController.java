@@ -20,7 +20,8 @@ import org.slf4j.LoggerFactory;
  * @since 28-11-2024
  */
 public class MainController {
-    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+    private static final Logger logger = LoggerFactory
+            .getLogger(MainController.class);
     private PrototypeRegistry registry;
 
     /**
@@ -35,9 +36,21 @@ public class MainController {
      * Adds default button prototypes to the registry.
      */
     private void addDefaultPrototypes() {
-        registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal", 150, new DropShadow(10, Color.GRAY)));
-        registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold", 150, new DropShadow(10, Color.DARKGREEN)));
-        registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold", 150, new DropShadow(10, Color.DARKRED)));
+        registry.addPrototype("defaultButton",
+                new ButtonPrototype("Default Button",
+                        Color.LIGHTGRAY, Color.BLACK, 14, 50,
+                        100, "normal", 150,
+                        new DropShadow(10, Color.GRAY)));
+        registry.addPrototype("submitButton",
+                new ButtonPrototype("Submit", Color.GREEN,
+                        Color.WHITE, 16, 300, 100,
+                        "bold", 150,
+                        new DropShadow(10, Color.DARKGREEN)));
+        registry.addPrototype("cancelButton",
+                new ButtonPrototype("Cancel", Color.RED,
+                        Color.WHITE, 16, 550, 100,
+                        "bold", 150,
+                        new DropShadow(10, Color.DARKRED)));
     }
 
     /**
@@ -47,7 +60,8 @@ public class MainController {
      */
     public Button getDefaultButton() {
         try {
-            return createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
+            return createButton((ButtonPrototype) registry
+                    .getPrototype("defaultButton"));
         } catch (Exception e) {
             logger.error("Error creating Default Button", e);
             showError("Error creating Default Button: " + e.getMessage());
@@ -62,7 +76,8 @@ public class MainController {
      */
     public Button getSubmitButton() {
         try {
-            return createButton((ButtonPrototype) registry.getPrototype("submitButton"));
+            return createButton((ButtonPrototype) registry
+                    .getPrototype("submitButton"));
         } catch (Exception e) {
             logger.error("Error creating Submit Button", e);
             showError("Error creating Submit Button: " + e.getMessage());
@@ -77,7 +92,8 @@ public class MainController {
      */
     public Button getCancelButton() {
         try {
-            return createButton((ButtonPrototype) registry.getPrototype("cancelButton"));
+            return createButton((ButtonPrototype) registry
+                    .getPrototype("cancelButton"));
         } catch (Exception e) {
             logger.error("Error creating Cancel Button", e);
             showError("Error creating Cancel Button: " + e.getMessage());
@@ -98,7 +114,10 @@ public class MainController {
             button.setPrefSize(200, 50);
             button.setLayoutX(prototype.getX());
             button.setLayoutY(prototype.getY());
-            button.setStyle(String.format("-fx-background-color: #%02x%02x%02x; -fx-text-fill: #%02x%02x%02x; -fx-font-size: %.1fpx; -fx-font-weight: %s; -fx-background-radius: 12px;",
+            button.setStyle(String.format("-fx-background-color: " +
+                            "#%02x%02x%02x; -fx-text-fill: #%02x%02x%02x; " +
+                            "-fx-font-size: %.1fpx; -fx-font-weight: %s; " +
+                            "-fx-background-radius: 12px;",
                     (int) (prototype.getBackgroundColor().getRed() * 255),
                     (int) (prototype.getBackgroundColor().getGreen() * 255),
                     (int) (prototype.getBackgroundColor().getBlue() * 255),
@@ -126,7 +145,8 @@ public class MainController {
      * @param duration the duration of the animation
      */
     private void addAnimation(Button button, double duration) {
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(duration), button);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration
+                .millis(duration), button);
         button.setOnMousePressed(event -> {
             scaleTransition.setToX(0.95);
             scaleTransition.setToY(0.95);
@@ -153,14 +173,14 @@ public class MainController {
     }
 
     // Trigger an intentional error to verify logging
-    /*
-    public void triggerError() {
-        try {
-            throw new RuntimeException("Intentional Error for Logging");
-        } catch (Exception e) {
-            logger.error("An intentional error occurred", e);
-            showError("An intentional error occurred: " + e.getMessage());
-        }
-    }
-     */
+
+//    public void triggerError() {
+//        try {
+//            throw new RuntimeException("Intentional Error for Logging");
+//        } catch (Exception e) {
+//            logger.error("An intentional error occurred", e);
+//            showError("An intentional error occurred: " + e.getMessage());
+//        }
+//    }
+
 }

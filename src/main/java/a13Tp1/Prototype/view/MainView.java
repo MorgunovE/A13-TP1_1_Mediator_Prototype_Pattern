@@ -19,13 +19,15 @@ import org.slf4j.LoggerFactory;
  * @since 28-11-2024
  */
 public class MainView extends Application {
-    private static final Logger logger = LoggerFactory.getLogger(MainView.class);
+    private static final Logger logger = LoggerFactory
+            .getLogger(MainView.class);
 
     @Override
     public void start(Stage primaryStage) {
         MainController controller = new MainController();
 
-        Label header = new Label("Prototype Pattern with JavaFX");
+        Label header =
+                new Label("Prototype Pattern with JavaFX");
         header.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         header.setLayoutX(200);
         header.setLayoutY(20);
@@ -55,8 +57,10 @@ public class MainView extends Application {
         if (button != null) {
             pane.getChildren().add(button);
         } else {
-            logger.error("Button is null and cannot be added to the pane.");
-            System.err.println("Button is null and cannot be added to the pane.");
+            logger
+                    .error("Button is null and cannot be added to the pane.");
+            System.err
+                    .println("Button is null and cannot be added to the pane.");
         }
     }
 

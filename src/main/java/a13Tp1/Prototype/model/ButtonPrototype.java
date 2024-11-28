@@ -34,7 +34,10 @@ public class ButtonPrototype implements Prototype {
      * @param animationDuration the duration of the button's animation
      * @param shadowEffect the shadow effect of the button
      */
-    public ButtonPrototype(String label, Color backgroundColor, Color textColor, double fontSize, double x, double y, String fontWeight, double animationDuration, DropShadow shadowEffect) {
+    public ButtonPrototype(String label, Color backgroundColor,
+                           Color textColor, double fontSize, double x, double y,
+                           String fontWeight, double animationDuration,
+                           DropShadow shadowEffect) {
         this.label = label;
         this.backgroundColor = backgroundColor;
         this.textColor = textColor;
@@ -90,6 +93,8 @@ public class ButtonPrototype implements Prototype {
      */
     @Override
     public ButtonPrototype clone() {
-        return new ButtonPrototype(this.label, this.backgroundColor, this.textColor, this.fontSize, this.x, this.y, this.fontWeight, this.animationDuration, this.shadowEffect);
+        return new ButtonPrototype(this.label, this.backgroundColor,
+                this.textColor, this.fontSize, this.x, this.y, this.fontWeight,
+                this.animationDuration, this.shadowEffect);
     }
 }

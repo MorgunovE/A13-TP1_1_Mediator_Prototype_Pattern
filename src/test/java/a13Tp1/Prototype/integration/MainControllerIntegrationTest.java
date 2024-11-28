@@ -36,9 +36,14 @@ class MainControllerIntegrationTest extends ApplicationTest {
     void testButtonCreation() {
         MainController controller = new MainController();
         PrototypeRegistry registry = new PrototypeRegistry();
-        registry.addPrototype("testButton", new ButtonPrototype("Test", Color.BLUE, Color.WHITE, 14, 100, 100, "normal", 150, new DropShadow(10, Color.GRAY)));
+        registry.addPrototype("testButton",
+                new ButtonPrototype("Test", Color.BLUE,
+                        Color.WHITE, 14, 100, 100,
+                        "normal", 150,
+                        new DropShadow(10, Color.GRAY)));
 
-        ButtonPrototype prototype = (ButtonPrototype) registry.getPrototype("testButton");
+        ButtonPrototype prototype = (ButtonPrototype) registry
+                .getPrototype("testButton");
         Button button = controller.createButton(prototype);
 
         assertNotNull(button);
