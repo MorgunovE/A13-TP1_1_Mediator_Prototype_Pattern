@@ -5,8 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -15,9 +14,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         PrototypeRegistry registry = new PrototypeRegistry();
-        registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14));
-        registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16));
-        registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16));
+        registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal"));
+        registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold"));
+        registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold"));
 
         Button defaultButton = createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
         Button submitButton = createButton((ButtonPrototype) registry.getPrototype("submitButton"));
@@ -25,13 +24,11 @@ public class Main extends Application {
 
         Label header = new Label("Prototype Pattern with JavaFX");
         header.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        header.setLayoutX(200);
+        header.setLayoutY(20);
 
-        HBox buttonRow = new HBox(defaultButton, submitButton, cancelButton);
-        buttonRow.setSpacing(10); // Add space between buttons
-
-        VBox root = new VBox(header, buttonRow);
-        root.setSpacing(20); // Add space after the header
-        Scene scene = new Scene(root, 600, 200);
+        Pane root = new Pane(header, defaultButton, submitButton, cancelButton);
+        Scene scene = new Scene(root, 800, 300);
 
         primaryStage.setTitle("Prototype Pattern with JavaFX");
         primaryStage.setScene(scene);
@@ -42,20 +39,23 @@ public class Main extends Application {
         Button button = new Button();
         button.setText(prototype.getLabel());
         button.setPrefSize(200, 50);
-        button.setStyle(String.format("-fx-background-color: #%02x%02x%02x; -fx-text-fill: #%02x%02x%02x; -fx-font-size: %.1fpx;",
+        button.setLayoutX(prototype.getX());
+        button.setLayoutY(prototype.getY());
+        button.setStyle(String.format("-fx-background-color: #%02x%02x%02x; -fx-text-fill: #%02x%02x%02x; -fx-font-size: %.1fpx; -fx-font-weight: %s; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 2);",
                 (int) (prototype.getBackgroundColor().getRed() * 255),
                 (int) (prototype.getBackgroundColor().getGreen() * 255),
                 (int) (prototype.getBackgroundColor().getBlue() * 255),
                 (int) (prototype.getTextColor().getRed() * 255),
                 (int) (prototype.getTextColor().getGreen() * 255),
                 (int) (prototype.getTextColor().getBlue() * 255),
-                prototype.getFontSize()));
+                prototype.getFontSize(),
+                prototype.getFontWeight()));
 
         // Add animation for button press
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(100), button);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(150), button);
         button.setOnMousePressed(event -> {
-            scaleTransition.setToX(0.9);
-            scaleTransition.setToY(0.9);
+            scaleTransition.setToX(0.95);
+            scaleTransition.setToY(0.95);
             scaleTransition.playFromStart();
         });
         button.setOnMouseReleased(event -> {
