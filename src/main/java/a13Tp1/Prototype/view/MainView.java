@@ -12,11 +12,13 @@ public class MainView extends Application {
     public void start(Stage primaryStage) {
         MainController controller = new MainController();
 
+        // Method to clone the prototype
         Label header = new Label("Prototype Pattern with JavaFX");
         header.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         header.setLayoutX(200);
         header.setLayoutY(20);
 
+        // Create the main pane and add buttons
         Pane root = new Pane(header, controller.getDefaultButton(), controller.getSubmitButton(), controller.getCancelButton());
         Scene scene = new Scene(root, 800, 300);
 

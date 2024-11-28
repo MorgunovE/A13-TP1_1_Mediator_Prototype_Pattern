@@ -13,23 +13,28 @@ public class MainController {
 
     public MainController() {
         registry = new PrototypeRegistry();
+        // Add default button prototypes to the registry
         registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal", 150, new DropShadow(10, Color.GRAY)));
         registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold", 150, new DropShadow(10, Color.DARKGREEN)));
         registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold", 150, new DropShadow(10, Color.DARKRED)));
     }
 
+    // Add default button prototypes to the registry
     public Button getDefaultButton() {
         return createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
     }
 
+    // Create and return a submit button
     public Button getSubmitButton() {
         return createButton((ButtonPrototype) registry.getPrototype("submitButton"));
     }
 
+    // Create and return a cancel button
     public Button getCancelButton() {
         return createButton((ButtonPrototype) registry.getPrototype("cancelButton"));
     }
 
+    // Create a button based on the given prototype
     private Button createButton(ButtonPrototype prototype) {
         Button button = new Button();
         button.setText(prototype.getLabel());

@@ -26,6 +26,7 @@ public class ButtonPrototype implements Prototype {
         this.shadowEffect = shadowEffect;
     }
 
+    // Getters for button properties
     public String getLabel() {
         return label;
     }
@@ -62,6 +63,7 @@ public class ButtonPrototype implements Prototype {
         return shadowEffect;
     }
 
+    // Clone method to create a copy of the button prototype
     @Override
     public ButtonPrototype clone() {
         return new ButtonPrototype(this.label, this.backgroundColor, this.textColor, this.fontSize, this.x, this.y, this.fontWeight, this.animationDuration, this.shadowEffect);
