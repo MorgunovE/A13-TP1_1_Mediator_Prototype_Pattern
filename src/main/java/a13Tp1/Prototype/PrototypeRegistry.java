@@ -1,13 +1,16 @@
 package a13Tp1.Prototype;
 
-public class PrototypeRegistry {
-    private Prototype[] prototypes;
+import java.util.HashMap;
+import java.util.Map;
 
-    public PrototypeRegistry(Prototype[] prototypes) {
-        this.prototypes = prototypes;
+public class PrototypeRegistry {
+    private Map<String, Prototype> prototypes = new HashMap<>();
+
+    public void addPrototype(String key, Prototype prototype) {
+        prototypes.put(key, prototype);
     }
 
-    public Prototype createPrototype(int index) {
-        return this.prototypes[index].clone();
+    public Prototype getPrototype(String key) {
+        return prototypes.get(key).clone();
     }
 }
