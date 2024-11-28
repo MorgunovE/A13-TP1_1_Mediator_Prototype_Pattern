@@ -106,4 +106,16 @@ public class MainController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    // Trigger an intentional error to verify logging
+    /*
+    public void triggerError() {
+        try {
+            throw new RuntimeException("Intentional Error for Logging");
+        } catch (Exception e) {
+            logger.error("An intentional error occurred", e);
+            showError("An intentional error occurred: " + e.getMessage());
+        }
+    }
+     */
 }

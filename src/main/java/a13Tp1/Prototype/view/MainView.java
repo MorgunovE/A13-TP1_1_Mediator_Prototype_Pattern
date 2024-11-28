@@ -27,6 +27,9 @@ public class MainView extends Application {
         addButtonToPane(root, controller.getSubmitButton());
         addButtonToPane(root, controller.getCancelButton());
 
+        // Trigger the error to verify logging
+//        controller.triggerError();
+
         Scene scene = new Scene(root, 800, 300);
 
         primaryStage.setTitle("Prototype Pattern with JavaFX");
