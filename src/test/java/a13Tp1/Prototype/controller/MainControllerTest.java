@@ -1,9 +1,7 @@
 package a13Tp1.Prototype.controller;
 
-import a13Tp1.Prototype.model.ButtonPrototype;
+import a13Tp1.Prototype.controller.MainController;
 import javafx.scene.control.Button;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.paint.Color;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import javafx.stage.Stage;
