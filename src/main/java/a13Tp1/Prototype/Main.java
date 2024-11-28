@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -14,9 +15,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         PrototypeRegistry registry = new PrototypeRegistry();
-        registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal"));
-        registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold"));
-        registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold"));
+        registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal", 150, new DropShadow(10, Color.GRAY)));
+        registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold", 150, new DropShadow(10, Color.DARKGREEN)));
+        registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold", 150, new DropShadow(10, Color.DARKRED)));
 
         Button defaultButton = createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
         Button submitButton = createButton((ButtonPrototype) registry.getPrototype("submitButton"));
@@ -41,7 +42,7 @@ public class Main extends Application {
         button.setPrefSize(200, 50);
         button.setLayoutX(prototype.getX());
         button.setLayoutY(prototype.getY());
-        button.setStyle(String.format("-fx-background-color: #%02x%02x%02x; -fx-text-fill: #%02x%02x%02x; -fx-font-size: %.1fpx; -fx-font-weight: %s; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 2);",
+        button.setStyle(String.format("-fx-background-color: #%02x%02x%02x; -fx-text-fill: #%02x%02x%02x; -fx-font-size: %.1fpx; -fx-font-weight: %s; -fx-background-radius: 12px;",
                 (int) (prototype.getBackgroundColor().getRed() * 255),
                 (int) (prototype.getBackgroundColor().getGreen() * 255),
                 (int) (prototype.getBackgroundColor().getBlue() * 255),
@@ -50,9 +51,10 @@ public class Main extends Application {
                 (int) (prototype.getTextColor().getBlue() * 255),
                 prototype.getFontSize(),
                 prototype.getFontWeight()));
+        button.setEffect(prototype.getShadowEffect());
 
         // Add animation for button press
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(150), button);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(prototype.getAnimationDuration()), button);
         button.setOnMousePressed(event -> {
             scaleTransition.setToX(0.95);
             scaleTransition.setToY(0.95);
