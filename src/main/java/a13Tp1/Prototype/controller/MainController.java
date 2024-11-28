@@ -11,6 +11,9 @@ import javafx.util.Duration;
 public class MainController {
     private PrototypeRegistry registry;
 
+    /**
+     * Controller for managing button prototypes and their creation.
+     */
     public MainController() {
         registry = new PrototypeRegistry();
         // Add default button prototypes to the registry

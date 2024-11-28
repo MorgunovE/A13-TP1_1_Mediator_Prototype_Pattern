@@ -3,6 +3,9 @@ package a13Tp1.Prototype.model;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 
+/**
+ * Represents a prototype for a button with various properties.
+ */
 public class ButtonPrototype implements Prototype {
     private String label;
     private Color backgroundColor;

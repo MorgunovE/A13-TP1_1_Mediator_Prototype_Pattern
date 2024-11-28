@@ -3,6 +3,9 @@ package a13Tp1.Prototype.model;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents a prototype for a button with various properties.
+ */
 public class PrototypeRegistry {
     private Map<String, Prototype> prototypes = new HashMap<>();
 
