@@ -4,17 +4,33 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 
 /**
- * Represents a prototype for a button with various properties.
+ * A registry for storing and retrieving prototypes.
+ * This class provides methods to add and retrieve prototypes from a concurrent hash map.
+ * Each prototype is associated with a unique key.
+ *
+ * @author Evgenii Morgunov
+ * @version 1.0
+ * @since 28-11-2024
  */
 public class PrototypeRegistry {
     private Map<String, Prototype> prototypes = new ConcurrentHashMap<>();
 
-    // Add a prototype to the registry
+    /**
+     * Adds a prototype to the registry.
+     *
+     * @param key the key associated with the prototype
+     * @param prototype the prototype to add
+     */
     public void addPrototype(String key, Prototype prototype) {
         prototypes.put(key, prototype);
     }
 
-    // Retrieve and clone a prototype from the registry
+    /**
+     * Retrieves and clones a prototype from the registry.
+     *
+     * @param key the key associated with the prototype
+     * @return a clone of the prototype
+     */
     public Prototype getPrototype(String key) {
         return prototypes.get(key).clone();
     }

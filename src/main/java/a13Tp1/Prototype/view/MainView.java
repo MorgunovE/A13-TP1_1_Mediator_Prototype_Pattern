@@ -10,6 +10,14 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Main view for displaying the prototype pattern with JavaFX.
+ * This class sets up the JavaFX application and displays buttons created using prototypes.
+ *
+ * @author Evgenii Morgunov
+ * @version 1.0
+ * @since 28-11-2024
+ */
 public class MainView extends Application {
     private static final Logger logger = LoggerFactory.getLogger(MainView.class);
 
@@ -37,6 +45,12 @@ public class MainView extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Adds a button to the given pane.
+     *
+     * @param pane the pane to add the button to
+     * @param button the button to add
+     */
     private void addButtonToPane(Pane pane, Button button) {
         if (button != null) {
             pane.getChildren().add(button);
@@ -46,6 +60,11 @@ public class MainView extends Application {
         }
     }
 
+    /**
+     * The main method to launch the JavaFX application.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

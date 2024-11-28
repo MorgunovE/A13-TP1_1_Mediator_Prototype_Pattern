@@ -8,6 +8,15 @@ import javafx.stage.Stage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Acceptance tests for the MainController class.
+ * This class tests the compliance of buttons created by the MainController.
+ * It extends ApplicationTest to initialize the JavaFX toolkit.
+ *
+ * @author Evgenii Morgunov
+ * @version 1.0
+ * @since 28-11-2024
+ */
 class MainControllerAcceptanceTest extends ApplicationTest {
 
     @Override
@@ -15,6 +24,10 @@ class MainControllerAcceptanceTest extends ApplicationTest {
         // This method is required to initialize the JavaFX toolkit
     }
 
+    /**
+     * Tests the compliance of the default button created by the MainController.
+     * Ensures the button is not null and has the expected properties.
+     */
     @Test
     void testDefaultButtonCompliance() {
         MainController controller = new MainController();
@@ -25,6 +38,10 @@ class MainControllerAcceptanceTest extends ApplicationTest {
         assertEquals(50, button.getPrefHeight());
     }
 
+    /**
+     * Tests the compliance of the submit button created by the MainController.
+     * Ensures the button is not null and has the expected properties.
+     */
     @Test
     void testSubmitButtonCompliance() {
         MainController controller = new MainController();
@@ -35,6 +52,10 @@ class MainControllerAcceptanceTest extends ApplicationTest {
         assertEquals(50, button.getPrefHeight());
     }
 
+    /**
+     * Tests the compliance of the cancel button created by the MainController.
+     * Ensures the button is not null and has the expected properties.
+     */
     @Test
     void testCancelButtonCompliance() {
         MainController controller = new MainController();

@@ -12,6 +12,15 @@ import javafx.stage.Stage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Integration tests for the MainController class.
+ * This class tests the integration of MainController with the PrototypeRegistry and ButtonPrototype.
+ * It extends ApplicationTest to initialize the JavaFX toolkit.
+ *
+ * @author Evgenii Morgunov
+ * @version 1.0
+ * @since 28-11-2024
+ */
 class MainControllerIntegrationTest extends ApplicationTest {
 
     @Override
@@ -19,6 +28,10 @@ class MainControllerIntegrationTest extends ApplicationTest {
         // This method is required to initialize the JavaFX toolkit
     }
 
+    /**
+     * Tests the creation of a button using a prototype from the registry.
+     * Ensures the button is not null and has the expected properties.
+     */
     @Test
     void testButtonCreation() {
         MainController controller = new MainController();
