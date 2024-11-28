@@ -11,34 +11,30 @@ import javafx.util.Duration;
 public class MainController {
     private PrototypeRegistry registry;
 
-    /**
-     * Controller for managing button prototypes and their creation.
-     */
     public MainController() {
         registry = new PrototypeRegistry();
-        // Add default button prototypes to the registry
+        addDefaultPrototypes();
+    }
+
+    private void addDefaultPrototypes() {
         registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal", 150, new DropShadow(10, Color.GRAY)));
         registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold", 150, new DropShadow(10, Color.DARKGREEN)));
         registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold", 150, new DropShadow(10, Color.DARKRED)));
     }
 
-    // Add default button prototypes to the registry
     public Button getDefaultButton() {
         return createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
     }
 
-    // Create and return a submit button
     public Button getSubmitButton() {
         return createButton((ButtonPrototype) registry.getPrototype("submitButton"));
     }
 
-    // Create and return a cancel button
     public Button getCancelButton() {
         return createButton((ButtonPrototype) registry.getPrototype("cancelButton"));
     }
 
-    // Create a button based on the given prototype
-    private Button createButton(ButtonPrototype prototype) {
+    public Button createButton(ButtonPrototype prototype) {
         Button button = new Button();
         button.setText(prototype.getLabel());
         button.setPrefSize(200, 50);
@@ -55,8 +51,13 @@ public class MainController {
                 prototype.getFontWeight()));
         button.setEffect(prototype.getShadowEffect());
 
-        // Add animation for button press
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(prototype.getAnimationDuration()), button);
+        addAnimation(button, prototype.getAnimationDuration());
+
+        return button;
+    }
+
+    private void addAnimation(Button button, double duration) {
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(duration), button);
         button.setOnMousePressed(event -> {
             scaleTransition.setToX(0.95);
             scaleTransition.setToY(0.95);
@@ -67,7 +68,5 @@ public class MainController {
             scaleTransition.setToY(1.0);
             scaleTransition.playFromStart();
         });
-
-        return button;
     }
 }
