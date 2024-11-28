@@ -1,39 +1,33 @@
-package a13Tp1.Prototype;
+package a13Tp1.Prototype.controller;
 
+import a13Tp1.Prototype.model.ButtonPrototype;
+import a13Tp1.Prototype.model.PrototypeRegistry;
 import javafx.animation.ScaleTransition;
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Main extends Application {
-    @Override
-    public void start(Stage primaryStage) {
-        PrototypeRegistry registry = new PrototypeRegistry();
+public class MainController {
+    private PrototypeRegistry registry;
+
+    public MainController() {
+        registry = new PrototypeRegistry();
         registry.addPrototype("defaultButton", new ButtonPrototype("Default Button", Color.LIGHTGRAY, Color.BLACK, 14, 50, 100, "normal", 150, new DropShadow(10, Color.GRAY)));
         registry.addPrototype("submitButton", new ButtonPrototype("Submit", Color.GREEN, Color.WHITE, 16, 300, 100, "bold", 150, new DropShadow(10, Color.DARKGREEN)));
         registry.addPrototype("cancelButton", new ButtonPrototype("Cancel", Color.RED, Color.WHITE, 16, 550, 100, "bold", 150, new DropShadow(10, Color.DARKRED)));
+    }
 
-        Button defaultButton = createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
-        Button submitButton = createButton((ButtonPrototype) registry.getPrototype("submitButton"));
-        Button cancelButton = createButton((ButtonPrototype) registry.getPrototype("cancelButton"));
+    public Button getDefaultButton() {
+        return createButton((ButtonPrototype) registry.getPrototype("defaultButton"));
+    }
 
-        Label header = new Label("Prototype Pattern with JavaFX");
-        header.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
-        header.setLayoutX(200);
-        header.setLayoutY(20);
+    public Button getSubmitButton() {
+        return createButton((ButtonPrototype) registry.getPrototype("submitButton"));
+    }
 
-        Pane root = new Pane(header, defaultButton, submitButton, cancelButton);
-        Scene scene = new Scene(root, 800, 300);
-
-        primaryStage.setTitle("Prototype Pattern with JavaFX");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public Button getCancelButton() {
+        return createButton((ButtonPrototype) registry.getPrototype("cancelButton"));
     }
 
     private Button createButton(ButtonPrototype prototype) {
@@ -67,9 +61,5 @@ public class Main extends Application {
         });
 
         return button;
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

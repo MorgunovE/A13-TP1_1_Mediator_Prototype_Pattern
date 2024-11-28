@@ -1,4 +1,4 @@
-package a13Tp1.Prototype;
+package a13Tp1.Prototype.model;
 
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;

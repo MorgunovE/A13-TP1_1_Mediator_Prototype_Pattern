@@ -57,7 +57,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>a13Tp1.Prototype.Main</mainClass>
+                    <mainClass>a13Tp1.Prototype.view.MainView</mainClass>
                 </configuration>
             </plugin>
         </plugins>

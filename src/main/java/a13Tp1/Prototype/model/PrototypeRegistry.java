@@ -1,4 +1,4 @@
-package a13Tp1.Prototype;
+package a13Tp1.Prototype.model;
 
 import java.util.HashMap;
 import java.util.Map;
