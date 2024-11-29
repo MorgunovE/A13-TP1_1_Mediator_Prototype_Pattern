@@ -1,4 +1,4 @@
-package edu.bdeb.a10.cc;
+package a13Tp1.Mediator;
 
 public class SimpleUser extends User {
 

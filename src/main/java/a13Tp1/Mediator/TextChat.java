@@ -1,4 +1,4 @@
-package edu.bdeb.a10.cc;
+package a13Tp1.Mediator;
 
 import java.util.ArrayList;
 import java.util.List;
