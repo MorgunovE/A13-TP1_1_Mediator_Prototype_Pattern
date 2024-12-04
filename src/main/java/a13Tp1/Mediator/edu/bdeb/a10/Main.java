@@ -5,6 +5,9 @@ import a13Tp1.Mediator.edu.bdeb.a10.model.Administrator;
 import a13Tp1.Mediator.edu.bdeb.a10.model.SimpleUser;
 import a13Tp1.Mediator.edu.bdeb.a10.model.IUser;
 
+/**
+ * Main class to demonstrate the Mediator pattern using a chat system.
+ */
 public class Main {
     public static void main(String[] args) {
         TextChat chat = new TextChat();
