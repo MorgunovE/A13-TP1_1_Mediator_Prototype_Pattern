@@ -1,9 +1,9 @@
-package a13Tp1.Mediator.edu.bdeb.a10;
+package a13Tp1.Mediator;
 
-import a13Tp1.Mediator.edu.bdeb.a10.controller.TextChat;
-import a13Tp1.Mediator.edu.bdeb.a10.model.Administrator;
-import a13Tp1.Mediator.edu.bdeb.a10.model.SimpleUser;
-import a13Tp1.Mediator.edu.bdeb.a10.model.IUser;
+import a13Tp1.Mediator.controller.TextChat;
+import a13Tp1.Mediator.model.Administrator;
+import a13Tp1.Mediator.model.SimpleUser;
+import a13Tp1.Mediator.model.IUser;
 
 /**
  * Main class to demonstrate the Mediator pattern using a chat system.

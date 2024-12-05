@@ -1,6 +1,6 @@
-package a13Tp1.Mediator.edu.bdeb.a10.model;
+package a13Tp1.Mediator.model;
 
-import a13Tp1.Mediator.edu.bdeb.a10.controller.Chat;
+import a13Tp1.Mediator.controller.Chat;
 
 /**
  * Represents an administrator in the chat system.

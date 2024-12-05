@@ -1,8 +1,8 @@
-package a13Tp1.Mediator.edu.bdeb.a10.controller;
+package a13Tp1.Mediator.controller;
 
-import a13Tp1.Mediator.edu.bdeb.a10.model.Administrator;
-import a13Tp1.Mediator.edu.bdeb.a10.model.SimpleUser;
-import a13Tp1.Mediator.edu.bdeb.a10.model.IUser;
+import a13Tp1.Mediator.model.Administrator;
+import a13Tp1.Mediator.model.SimpleUser;
+import a13Tp1.Mediator.model.IUser;
 
 import java.util.ArrayList;
 import java.util.List;

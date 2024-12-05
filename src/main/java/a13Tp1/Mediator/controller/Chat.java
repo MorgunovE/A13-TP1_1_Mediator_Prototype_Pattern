@@ -1,6 +1,6 @@
-package a13Tp1.Mediator.edu.bdeb.a10.controller;
+package a13Tp1.Mediator.controller;
 
-import a13Tp1.Mediator.edu.bdeb.a10.model.IUser;
+import a13Tp1.Mediator.model.IUser;
 
 /**
  * Mediator interface that facilitates communication between users.

@@ -1,4 +1,4 @@
-package a13Tp1.Mediator.edu.bdeb.a10.model;
+package a13Tp1.Mediator.model;
 /**
  * Represents a user in the chat system. Defines the basic behavior
  * of a chat participant, such as sending and receiving messages.
